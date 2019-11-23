@@ -22,6 +22,8 @@ window.onresize = function(){
     }
 }
 
+scale = 1;
+
 function adjPreview(m){
     windowWidth = m.window.innerWidth;
     windowHeight = m.window.innerHeight;
@@ -49,3 +51,11 @@ function adjPreview(m){
     $('.preview-container').height(scale * windowHeight);
     $('.preview-container .teleprompter').css("font-size",fontSize);
 }
+
+$(".preview-container").scroll(function () {
+    if (typeof m != "undefined") {
+        topscroll = $('.preview-container').scrollTop() / scale;
+        m.document.body.scrollTop = topscroll;
+        m.window.scrollTo(0, topscroll);
+    }
+});
