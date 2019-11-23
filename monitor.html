@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <link rel='stylesheet' type='text/css' href='style.css'>
+    </head>
+    <body id='monitor'>
+        <div class='controls'>
+            <button id='openmirror'>Open mirror</button>
+            <button id='playpause'>Play/Pause (space)</button>
+            <div class='speedtitle'><span>Playing speed:</span></div>
+            <div class='speed'>
+                <div class='speeditem'><span>1</span></div>
+                <div class='speeditem'><span>2</span></div>
+                <div class='speeditem'><span>3</span></div>
+                <div class='speeditem'><span>4</span></div>
+            </div>
+        </div>
+        <div class='preview-container'>
+            <div id='preview'>
+                <p class='teleprompter' id='script'></p>
+            </div>
+        </div>
+        <script src='monitor.js'></script>
+    </body>
+</html>

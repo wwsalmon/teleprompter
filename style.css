@@ -1,4 +1,4 @@
-body.teleprompter{
+.teleprompter{
     background-color: #000;
     color: #fff;
     font-family: sans-serif;
@@ -6,35 +6,51 @@ body.teleprompter{
     font-weight: 700;
 }
 
-body.home{
-    font-family: sans-serif;
+body{
     font-size: 20px;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+body.home{
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.5;
 }
 
-button{
-    outline: none;
-    background-color: #222;
-    color: #fff;
-    font-size: 20px;
-    padding: 16px;
-    border: 0;
+html{
+    height: 100%;
+    width: 100%;
 }
 
-button:hover{
-    background-color: #666;
+body#monitor{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+button{
+    outline: none;
+    border: 0;
     cursor: pointer;
+    background-color: unset;
+    font-size: 20px;
+}
+
+.home button{
+    background-color: #222;
+    color: #fff;
+    padding: 16px;
+}
+
+.home button:hover{
+    background-color: #666;
 }
 
 textarea{
     width: 100%;
     height: 500px;
-}
-
-#openmirror{
-    position: absolute;
 }
 
 #script{
@@ -44,4 +60,43 @@ textarea{
 
 #mirrored{
     transform: scaleX(-1);
+}
+
+.controls{
+    width: 100%;
+    height: 64px;
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: #333;
+    color: #fff;
+}
+
+.controls button{
+    background-color: rgba(255,255,255,0.2);
+    margin: 8px;
+    color: #fff;
+}
+
+.speed{
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+}
+
+.speedtitle{
+    margin-left: 16px;
+    line-height: 64px;
+}
+
+.speeditem{
+    text-align: center;
+    background-color: rgba(255,255,255,0.1);
+    width: 48px;
+    margin: 8px;
+    line-height: 48px;
+}
+
+.preview-container{
+    height: 100%;
+    overflow-y: scroll;
 }

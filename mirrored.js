@@ -2,9 +2,7 @@ scriptIn = window.opener.scriptIn;
 $("#script").text(scriptIn);
 
 window.onresize = function() {
-    windowWidth = window.innerWidth;
-    windowHeight = window.innerHeight;
-    window.opener.window.resizeTo(windowWidth,windowHeight);
+    window.opener.postMessage("resize", window.opener.origin);
 }
 
 // window.onscroll = function() {
