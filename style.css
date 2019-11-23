@@ -71,10 +71,14 @@ textarea{
     color: #fff;
 }
 
-.controls button{
-    background-color: rgba(255,255,255,0.2);
+.controls button, .speeditem{
+    background-color: rgba(255,255,255,0.1);
     margin: 8px;
     color: #fff;
+}
+
+.controls button:hover, .speeditem:hover{
+    background-color: rgba(255,255,255,0.3);
 }
 
 .speed{
@@ -90,10 +94,9 @@ textarea{
 
 .speeditem{
     text-align: center;
-    background-color: rgba(255,255,255,0.1);
     width: 48px;
-    margin: 8px;
     line-height: 48px;
+    cursor: pointer;
 }
 
 .preview-container{

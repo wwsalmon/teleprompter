@@ -54,6 +54,7 @@ function adjPreview(m){
     fontSize = properFontSize * scale;
     
     $('.preview-container').width(scale * windowWidth);
+    $('.monitor-label').width(scale * windowWidth + padding);
     $('.preview-container').height(scale * windowHeight);
     $('.preview-container .teleprompter').css("font-size",fontSize);
 }
