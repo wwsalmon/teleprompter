@@ -33,15 +33,21 @@ function adjPreview(m){
     properFontSize = parseInt(mirrored['prevObject'].css("font-size"));
     console.log(properFontSize);
     
-    if (thisHeight < windowHeight){
-        scale = thisHeight / windowHeight;
-        if (thisWidth < windowWidth * scale){
-            scale = thisWidth / windowWidth;
+
+    /* NOTE: below, the 64 is for topbar height and 24 for border around the preview. */
+
+    topbarH = 64 + 24;
+    padding = 24;
+    
+    if (thisHeight - topbarH - padding < windowHeight){
+        scale = (thisHeight - topbarH - padding) / windowHeight;
+        if (thisWidth - padding < windowWidth * scale){
+            scale = (thisWidth - padding) / windowWidth;
         }
     }
-    else if (thisWidth < windowWidth){
+    else if (thisWidth - padding < windowWidth){
         console.log("smallerwidth");
-        scale = thisWidth / windowWidth;
+        scale = (thisWidth - padding) / windowWidth;
     }
     else scale = 1
 

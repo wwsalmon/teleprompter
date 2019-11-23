@@ -97,6 +97,18 @@ textarea{
 }
 
 .preview-container{
-    height: 100%;
+    border: 12px solid green;
+    width: calc(100% - 24px);
+    height: calc(100% - 112px);
     overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.monitor-label{
+    background-color: green;
+    color: #fff;
+    height: 24px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 36px;
 }
