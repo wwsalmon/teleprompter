@@ -27,6 +27,9 @@ function adjPreview(m){
     windowHeight = m.window.innerHeight;
     thisWidth = $("body").width();
     thisHeight = $("body").height();
+    mirrored = $(m.document.body).find(".teleprompter");
+    properFontSize = parseInt(mirrored['prevObject'].css("font-size"));
+    console.log(properFontSize);
     
     if (thisHeight < windowHeight){
         scale = thisHeight / windowHeight;
@@ -39,7 +42,10 @@ function adjPreview(m){
         scale = thisWidth / windowWidth;
     }
     else scale = 1
+
+    fontSize = properFontSize * scale;
     
     $('.preview-container').width(scale * windowWidth);
     $('.preview-container').height(scale * windowHeight);
+    $('.preview-container .teleprompter').css("font-size",fontSize);
 }
