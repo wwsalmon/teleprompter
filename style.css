@@ -1,0 +1,7 @@
+#script{
+    white-space: pre-wrap;
+}
+
+#mirrored{
+    transform: scaleX(-1);
+}
