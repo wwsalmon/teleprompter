@@ -3,8 +3,10 @@ $("#script").text(scriptIn);
 
 $("#openmirror").on("click", function() {
     m = window.open('mirrored.html', '', 'menubar=no');
+    m.addEventListener('load', function () {
+        adjPreview(m);
+    });
 });
-
 
 function receiveMessage(event){
     if (event.data == "resize"){
@@ -14,12 +16,17 @@ function receiveMessage(event){
 
 window.addEventListener("message", receiveMessage, false);
 
+window.onresize = function(){
+    if (typeof m != "undefined"){
+        adjPreview(m);
+    }
+}
+
 function adjPreview(m){
     windowWidth = m.window.innerWidth;
     windowHeight = m.window.innerHeight;
     thisWidth = $("body").width();
     thisHeight = $("body").height();
-    console.log(thisWidth,windowWidth);
     
     if (thisHeight < windowHeight){
         scale = thisHeight / windowHeight;
