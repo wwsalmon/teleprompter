@@ -9,9 +9,11 @@ $("#openmirror").on("click",function(){
 });
 
 window.onscroll = function () {
-    topscroll = window.scrollY;
-    m.document.body.scrollTop = topscroll;
-    // m.window.scrollY = topscroll;
-    m.window.scrollTo(0, topscroll);
-    // console.log(m.window.scrollY, m.document.body.scrollTop, topscroll)
+    if (typeof m != "undefined"){
+        topscroll = window.scrollY;
+        m.document.body.scrollTop = topscroll;
+        // m.window.scrollY = topscroll;
+        m.window.scrollTo(0, topscroll);
+        // console.log(m.window.scrollY, m.document.body.scrollTop, topscroll)
+    }
 }

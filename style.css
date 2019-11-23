@@ -6,6 +6,28 @@ body.teleprompter{
     font-weight: 700;
 }
 
+body.home{
+    font-family: sans-serif;
+    font-size: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+button{
+    outline: none;
+    background-color: #222;
+    color: #fff;
+    font-size: 20px;
+    padding: 16px;
+    border: 0;
+}
+
+button:hover{
+    background-color: #666;
+    cursor: pointer;
+}
+
 textarea{
     width: 100%;
     height: 500px;
