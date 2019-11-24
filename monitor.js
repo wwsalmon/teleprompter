@@ -36,7 +36,7 @@ function adjPreview(m){
 
     /* NOTE: below, the 64 is for topbar height and 24 for border around the preview. */
 
-    topbarH = 64 + 24;
+    topbarH = 48 + 20;
     padding = 24;
     
     if (thisHeight - topbarH - padding < windowHeight){
