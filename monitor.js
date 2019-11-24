@@ -66,3 +66,41 @@ $(".preview-container").scroll(function () {
         m.window.scrollTo(0, topscroll);
     }
 });
+
+$('#fontdec').on('click', function(){
+    changeFontSize("decrease");
+});
+
+$('#fontinc').on('click', function(){
+    changeFontSize("increase");
+});
+
+$('#fontres').on('click', function(){
+    changeFontSize("reset");
+});
+
+function changeFontSize(dir){
+    if (typeof m == "undefined"){
+        alert("Open the mirror window first!");
+        return;
+    }
+    mirrored = $(m.document.body).find(".teleprompter")['prevObject'];
+    if (dir == "reset"){
+        mirrored.css("font-size","96px");
+    }
+    else{
+        currentFontSize = parseInt(mirrored.css("font-size"));
+        if (dir == "increase"){
+            if (currentFontSize + 10 <= 206) {
+                newFontSize = currentFontSize + 10;
+            }
+        }
+        else if (dir == "decrease"){
+            if (currentFontSize - 10 >= 16) {
+                newFontSize = currentFontSize - 10;
+            }
+        }
+        mirrored.css("font-size",newFontSize);
+    }
+    adjPreview(m);
+}
