@@ -1,13 +1,21 @@
 scriptIn = window.opener.scriptContent;
 $("#script").text(scriptIn);
 
-$("#openmirror").on("click", function() {
-    m = window.open('mirrored.html', '', 'menubar=no');
+$(".openprompter").on('click', function(){
+    button = $(this);
+    m = window.open('prompter.html', '', 'menubar=no');
     m.addEventListener('load', function () {
+        if (button.attr('id') == "openmirrored") {
+            $(m.document.body).addClass("mirrored");
+            console.log($(m.document.body));
+        }
         adjPreview(m);
     });
-});
-
+    m.addEventListener('unload', function(){
+        console.log("unloaded");
+        m = undefined;
+    });
+})
 function receiveMessage(event){
     if (event.data == "resize"){
         adjPreview(m);
@@ -29,10 +37,8 @@ function adjPreview(m){
     windowHeight = m.window.innerHeight;
     thisWidth = $("body").width();
     thisHeight = $("body").height();
-    mirrored = $(m.document.body).find(".teleprompter");
-    properFontSize = parseInt(mirrored['prevObject'].css("font-size"));
-    console.log(properFontSize);
-    
+    prompter = $(m.document.body).find(".teleprompter");
+    properFontSize = parseInt(prompter['prevObject'].css("font-size"));
 
     /* NOTE: below, the 64 is for topbar height and 24 for border around the preview. */
 
@@ -81,15 +87,15 @@ $('#fontres').on('click', function(){
 
 function changeFontSize(dir){
     if (typeof m == "undefined"){
-        alert("Open the mirror window first!");
+        alert("Open the prompter window first!");
         return;
     }
-    mirrored = $(m.document.body).find(".teleprompter")['prevObject'];
+    prompter = $(m.document.body).find(".teleprompter")['prevObject'];
     if (dir == "reset"){
-        mirrored.css("font-size","96px");
+        prompter.css("font-size","96px");
     }
     else{
-        currentFontSize = parseInt(mirrored.css("font-size"));
+        currentFontSize = parseInt(prompter.css("font-size"));
         if (dir == "increase"){
             if (currentFontSize + 10 <= 206) {
                 newFontSize = currentFontSize + 10;
@@ -100,7 +106,7 @@ function changeFontSize(dir){
                 newFontSize = currentFontSize - 10;
             }
         }
-        mirrored.css("font-size",newFontSize);
+        prompter.css("font-size",newFontSize);
     }
     adjPreview(m);
 }

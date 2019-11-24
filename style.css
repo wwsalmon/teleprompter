@@ -58,7 +58,7 @@ textarea{
     white-space: pre-wrap;
 }
 
-#mirrored{
+.mirrored{
     transform: scaleX(-1);
 }
 
