@@ -5,15 +5,17 @@ $(".openprompter").on('click', function(){
     button = $(this);
     m = window.open('prompter.html', '', 'menubar=no');
     m.addEventListener('load', function () {
+        console.log("calling load boi");
         if (button.attr('id') == "openmirrored") {
             $(m.document.body).addClass("mirrored");
             console.log($(m.document.body));
         }
         adjPreview(m);
     });
-    m.addEventListener('unload', function(){
+    m.addEventListener('beforeunload', function(){
         console.log("unloaded");
         m = undefined;
+        return;
     });
 })
 function receiveMessage(event){
